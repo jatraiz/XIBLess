@@ -9,17 +9,23 @@
 import Anchorage
 import UIKit
 
-class MainViewController: UIViewController {
+final class MainViewController: UIViewController {
 
     let xibView = XibView(frame: CGRect.zero)
-    let xibLessView = XiblessView(frame: CGRect.zero)
+    let xibLessView = XiblessView(style: .CornerButtons)
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        edgesForExtendedLayout = .None
         configureViews()
     }
+
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
 }
+
+// MARK: - View Configuration
 
 private extension MainViewController {
 
@@ -37,7 +43,7 @@ private extension MainViewController {
         // Layout
 
         // Xib view is placed at the top below the status bar with half the height of the view
-        xibView.topAnchor          == topLayoutGuide.bottomAnchor
+        xibView.topAnchor          == view.topAnchor
         xibView.horizontalAnchors  == view.horizontalAnchors
         xibView.heightAnchor       == view.heightAnchor / 2.0
 
