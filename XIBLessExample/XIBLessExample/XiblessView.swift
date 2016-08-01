@@ -95,7 +95,7 @@ private extension XiblessView {
 
         // View heirarchy
 
-        cornerButtons?.forEach { addSubview($0) }
+        buttons.forEach { addSubview($0) }
 
         // Style & Layout
 
