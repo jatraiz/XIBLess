@@ -11,8 +11,8 @@ import UIKit
 
 final class MainViewController: UIViewController {
 
-    let xibView = XibView(frame: CGRect.zero)
-    let xibLessView = XiblessView(style: .CornerButtons)
+    private let xibView = XibView(frame: CGRect.zero)
+    private let xibLessView = XiblessView(style: .CornerButtons)
 
     override func viewDidLoad() {
         super.viewDidLoad()

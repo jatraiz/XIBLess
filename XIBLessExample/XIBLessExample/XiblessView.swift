@@ -16,8 +16,10 @@ final class XiblessView: UIView {
         case CornerButtons
     }
 
-    let cornerButtons: [UIButton]?
-    let button = UIButton(type: .System)
+    private let cornerButtons: [UIButton]?
+
+    private let button: UIButton = UIButton(type: .System)
+
     let style: ViewStyle
 
     init(style: ViewStyle) {
