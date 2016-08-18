@@ -95,19 +95,19 @@ private extension XiblessView {
 
     func configureCornerButtons(buttons: [UIButton]) {
 
-        // View heirarchy
-
-        buttons.forEach { addSubview($0) }
-
-        // Style & Layout
-
         for (index, button) in buttons.enumerate() {
 
             // First make sure that the button's index has a position defined for it
             guard let position = ButtonPositions(rawValue: index) else {
-                debugPrint("Error: button index of \(index) is not defined in ButtonPositions")
+                debugPrint("Error: \(index) not defined in ButtonPositions")
                 return
             }
+
+            // View heirarchy
+
+            addSubview(button)
+
+            // Style & Layout
 
             // Button content and style
             button.setTitle(String(index + 1), forState: .Normal)
