@@ -100,7 +100,7 @@ private extension XiblessView {
             // First make sure that the button's index has a position defined for it
             guard let position = ButtonPositions(rawValue: index) else {
                 debugPrint("Error: \(index) not defined in ButtonPositions")
-                return
+                continue
             }
 
             // View heirarchy
