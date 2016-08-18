@@ -69,14 +69,14 @@ private extension XiblessView {
     }
 
     func configureView() {
-        configureSimpleButton()
+        configureCenterButton()
         
         if let buttons = cornerButtons where style == .CornerButtons {
             configureCornerButtons(buttons)
         }
     }
 
-    func configureSimpleButton() {
+    func configureCenterButton() {
         // View heirarchy
 
         addSubview(button)
@@ -103,6 +103,12 @@ private extension XiblessView {
 
         for (index, button) in buttons.enumerate() {
 
+            // First make sure that the button's index has a position defined for it
+            guard let position = ButtonPositions(rawValue: index) else {
+                debugPrint("Error: button index of \(index) is not defined in ButtonPositions")
+                return
+            }
+
             // Button content and style
             button.setTitle(String(index + 1), forState: .Normal)
             button.backgroundColor = Constants.cornerButtonBackgroundColor
@@ -111,23 +117,20 @@ private extension XiblessView {
             button.heightAnchor == Constants.cornerButtonSize.height
             button.widthAnchor == Constants.cornerButtonSize.width
 
-            if let position = ButtonPositions(rawValue: index) {
-
-                // Place each button in its appropriate corner
-                switch position {
-                case .UpperLeft:
-                    button.leftAnchor == leftAnchor
-                    button.topAnchor  == topAnchor
-                case .UpperRight:
-                    button.rightAnchor == rightAnchor
-                    button.topAnchor   == topAnchor
-                case .LowerLeft:
-                    button.leftAnchor   == leftAnchor
-                    button.bottomAnchor == bottomAnchor
-                case .LowerRight:
-                    button.rightAnchor  == rightAnchor
-                    button.bottomAnchor == bottomAnchor
-                }
+            // Place each button in its appropriate corner
+            switch position {
+            case .UpperLeft:
+                button.leftAnchor == leftAnchor
+                button.topAnchor  == topAnchor
+            case .UpperRight:
+                button.rightAnchor == rightAnchor
+                button.topAnchor   == topAnchor
+            case .LowerLeft:
+                button.leftAnchor   == leftAnchor
+                button.bottomAnchor == bottomAnchor
+            case .LowerRight:
+                button.rightAnchor  == rightAnchor
+                button.bottomAnchor == bottomAnchor
             }
         }
     }
