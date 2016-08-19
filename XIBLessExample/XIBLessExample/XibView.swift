@@ -3,8 +3,6 @@
 //  XIBLessExample
 //
 //  Created by John Stricker on 7/11/16.
-//  Copyright © 2016 Raizlabs. All rights reserved.
-//
 
 import UIKit
 

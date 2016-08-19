@@ -3,8 +3,6 @@
 //  XIBLessExample
 //
 //  Created by John Stricker on 7/11/16.
-//  Copyright © 2016 Raizlabs. All rights reserved.
-//
 
 import Anchorage
 import UIKit
@@ -20,11 +18,7 @@ final class XiblessView: UIView {
 
     private let button: UIButton = UIButton(type: .System)
 
-    let style: ViewStyle
-
     init(style: ViewStyle) {
-
-        self.style = style
 
         // Create the corner buttons if the style calls for it
         if style == .CornerButtons {
@@ -71,7 +65,7 @@ private extension XiblessView {
     func configureView() {
         configureCenterButton()
         
-        if let buttons = cornerButtons where style == .CornerButtons {
+        if let buttons = cornerButtons {
             configureCornerButtons(buttons)
         }
     }
